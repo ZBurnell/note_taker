@@ -1,0 +1,15 @@
+const fs = require('fs');
+const path = require('path');
+
+const express = require('express');
+const router = express.Router();
+
+router.get('/notes', (req, res) => {
+    res.sendFile(getPath("notes"));
+});
+
+router.get('*', (req, res) => {
+    res.sendFile(getPath("index"));
+});
+
+module.exports = router;
