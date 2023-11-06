@@ -5,13 +5,13 @@ const path = require('path');
 const app = express();
 
 // Server port location
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Middleware for routes
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/db/notes', require('./routes/db'));
-app.use('/', require('./routes/html'));
+app.use('/api/notes', require('./Develop/routes/api.js'));
+app.use('/', require('./Develop/routes/html.js'));
 
 
 // listening for incoming port connections 

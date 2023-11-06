@@ -1,6 +1,22 @@
 [
     {
-        "title":"Your title here",
-        "text":"What needs done today?"
+        "id": "",
+        "title":"Go to the bank",
+        "text":"Head to the bank at 3pm to make sure you get there before they close"
+    },
+    {
+        "id": "",
+        "title":"Watch the office",
+        "text":"Hopefully Kevin doesn't spill his chili this episode"
+    },
+    {
+        "id": "",
+        "title":"Study for the next module",
+        "text":"Log in and put in work to be able to graduate the program"
+    },
+    {
+        "id": "",
+        "title":"Class",
+        "text":"SQL is up next"
     }
 ]
