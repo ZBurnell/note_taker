@@ -1,36 +1,39 @@
-const express = require('express');
-const uuid = require('uuid');
-const router = express.Router();
+//dependencies
+const fs = require('fs');
+const router = require('express').Router();
+const { v4: uuidv4 } = require('uuid');
 
-let data = require('../db/db.json');
+//GET for reading the notes added to db.json file
+router.get('/api/notes', (req, res) => {
+    fs.readFile('./db/db.json', (err, data) => {
+        if (err) throw err;
+        console.log(JSON.parse(data));
 
-router.get('/', (req, res) => res.json(data));
+        res.send(data)
+    })
+})
 
+//POST for adding new notes to db.json file
+router.post('/api/notes', (req, res) => {
+    let newNote = {
+        id: uuidv4(),
+        title: req.body.title,
+        text: req.body.text
+    }
+    fs.readFile('./db/db.json', (err, data) => {
+        if (err) throw err;
 
-router.post('/', (req, res) => {
-    const { id, title, text } = req.body;
-          
-    if (id && title && text) {
-        const newNote = {
-        id: uuid(),
-        title,
-        text,
-    };
-        data.push(newNote);
-        res.json(data);
-    
-    readAndAppend(newNote, './db/db.json');
+        let newData = JSON.parse(data);
 
-    const response = {
-      status: 'success',
-      body: newNote,
-    };
+        newData.push(newNote);
 
-    res.json(response);
-  } else {
-    res.json('Error in posting note');
-  }
-});
+        fs.writeFile('./db/db.json', JSON.stringify(newData), (err) => {
+            if (err) throw err;
 
+            res.send('Your note has been added successfully');
+        })
+    });
+
+})
 
 module.exports = router;

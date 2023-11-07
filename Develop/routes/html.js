@@ -1,17 +1,13 @@
-const fs = require('fs');
+//Dependencies
 const path = require('path');
+const router = require('express').Router();
 
-const express = require('express');;
-const router = express.Router();
-
-const getPath = (name) => path.join(__dirname, '..', 'public', `${name}.html`);
-
+//GET Routes for .HTML files
 router.get('/notes', (req, res) => {
-    res.sendFile(getPath("notes"));
-});
-
+    res.sendFile(path.join(__dirname, '../../public/notes.html'));
+})
 router.get('*', (req, res) => {
-    res.sendFile(getPath("index"));
+    res.sendFile(path.join(__dirname, '../../public/index.html'));
 });
 
 module.exports = router;
