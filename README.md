@@ -18,7 +18,7 @@ This project was tough and needs some work to be fully polished and working. Hav
 
 
 # Deployment
-Link to the deployed application -> [Heroku Deployment](https://zburnell-note-taker-3b8fd66782a1.herokuapp.com/notes)
+Link to the deployed application -> [Heroku Deployment](https://zburnell-note-taker-3b8fd66782a1.herokuapp.com)
 
 ![Screenshot of deplyed application](Develop/public/assets/Heroku_Deployment-Note_Taker.png)
 
