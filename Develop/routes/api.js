@@ -1,11 +1,12 @@
 //dependencies
 const fs = require('fs');
-const router = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
+const app = require('express').Router();
+const db = ('./Develop/db/db.json');
 
 //GET for reading the notes added to db.json file
-router.get('/api/notes', (req, res) => {
-    fs.readFile('./db/db.json', (err, data) => {
+app.get('/api/notes', (req, res) => {
+    fs.readFile(db, (err, data) => {
         if (err) throw err;
         console.log(JSON.parse(data));
 
@@ -13,27 +14,29 @@ router.get('/api/notes', (req, res) => {
     })
 })
 
-//POST for adding new notes to db.json file
-router.post('/api/notes', (req, res) => {
+//POST for adding a new note to the db.json file
+app.post('/api/notes', (req, res) => {
     let newNote = {
         id: uuidv4(),
         title: req.body.title,
         text: req.body.text
     }
-    fs.readFile('./db/db.json', (err, data) => {
+   
+    //Callback to read information in the db.json file
+    fs.readFile(db, (err, data) => {
         if (err) throw err;
 
         let newData = JSON.parse(data);
-
         newData.push(newNote);
 
-        fs.writeFile('./db/db.json', JSON.stringify(newData), (err) => {
+        //Callback to push new information the db.json file
+        fs.writeFile(db, JSON.stringify(newData), (err) => {
             if (err) throw err;
 
-            res.send('Your note has been added successfully');
+            res.send('your new note has been added successfully!');
         })
     });
 
 })
 
-module.exports = router;
+module.exports = app;

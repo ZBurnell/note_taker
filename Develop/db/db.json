@@ -1,17 +1,1 @@
-[
-    {
-        "id": 1616087173408,
-        "title":"Go to the bank",
-        "text":"Head to the bank at 3pm to make sure you get there before they close"
-    },
-    {
-        "id": 1616087196372,
-        "title":"Watch the office",
-        "text":"Hopefully Kevin doesn't spill his chili this episode"
-    },
-    {
-        "id": 1616087317843,
-        "title":"Study for the next module",
-        "text":"Log in and put in work to be able to graduate the program"
-    }
-]
+[{"id":1616087173408,"title":"Go to the bank","text":"Head to the bank at 3pm to make sure you get there before they close"},{"id":1616087196372,"title":"Watch the office","text":"Hopefully Kevin doesn't spill his chili this episode"},{"id":1616087317843,"title":"Study for the next module","text":"Log in and put in work to be able to graduate the program"},{"id":"240a6e74-8f86-41ef-ac7d-ccbc1e63158d"}]
